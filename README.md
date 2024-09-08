@@ -34,3 +34,11 @@ This web application fetches the current tempo of the track playing on Spotify a
 3. **Update Environment Variables**
 
    In the provided .env file, replace `your_spotify_client_id` and `your_spotify_client_secret` with your unique credentials provided by Spotify.
+
+4. **Start the Server**
+
+   Start the server by running:
+   ```bash
+   npm start
+
+   The application will be available at `http://localhost:3000`. Open this URL in your web browser to interact with the app.
