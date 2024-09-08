@@ -7,6 +7,7 @@ This web application fetches the current tempo of the track playing on Spotify a
 - **Spotify Authentication**: Users can log in with their Spotify account to fetch tempo data.
 - **Tempo-Based Animation**: The animated sprite adjusts its frame duration based on the tempo of the currently playing track.
 - **Responsive Design**: The application is centered on the screen with properly aligned elements.
+- **OBS Compatible**: The animated sprite can be pulled into OBS using a Browser source with a few clicks.
 
 ## Getting Started
 
