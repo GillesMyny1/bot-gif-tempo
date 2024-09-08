@@ -54,9 +54,9 @@ app.get('/callback', async (req, res) => {
     refreshToken = newRefreshToken;
     tokenExpiry = Date.now() + (expires_in * 1000);
 
-    console.log('Access token acquired:', accessToken); // Debug log
+    console.log('Access token acquired:', accessToken);
 
-    res.redirect('/'); // Redirect to home page or any other page after successful authentication
+    res.redirect('/');
   } catch (error) {
     console.error('Error exchanging code for tokens:', error.response ? error.response.data : error.message);
     res.send('Error retrieving tokens');
@@ -84,7 +84,7 @@ app.get('/refresh_token', async (req, res) => {
     accessToken = access_token;
     tokenExpiry = Date.now() + (expires_in * 1000);
 
-    console.log('Access token refreshed:', accessToken); // Debug log
+    console.log('Access token refreshed:', accessToken);
 
     res.json({ access_token, expires_in });
   } catch (error) {
@@ -102,11 +102,9 @@ app.use(async (req, res, next) => {
       console.error('Error refreshing token in middleware:', error.message);
     }
   }
-  console.log('Access token available:', accessToken); // Debug log
   next();
 });
 
-// Function to refresh access token
 async function refreshAccessToken() {
   try {
     if (!refreshToken) {
@@ -128,7 +126,7 @@ async function refreshAccessToken() {
     accessToken = access_token;
     tokenExpiry = Date.now() + (expires_in * 1000);
 
-    console.log('Access token refreshed:', accessToken); // Debug log
+    console.log('Access token refreshed:', accessToken);
   } catch (error) {
     console.error('Error refreshing token:', error.response ? error.response.data : error.message);
   }
@@ -140,31 +138,24 @@ async function getTrackTempo() {
     }
   
     try {
-      // Spotify API endpoint to get the current playback state
+      // Spotify API call gets currently playing song
       const playbackStateResponse = await axios.get('https://api.spotify.com/v1/me/player/currently-playing', {
         headers: {
           'Authorization': `Bearer ${accessToken}`
         }
       });
   
-      console.log('Playback state response:', playbackStateResponse.data); // Debug log
-  
       if (playbackStateResponse.data && playbackStateResponse.data.item) {
         const trackId = playbackStateResponse.data.item.id;
   
-        // Spotify API endpoint to get track details
+        // Spotify API call gets tempo of currently playing song
         const trackResponse = await axios.get(`https://api.spotify.com/v1/audio-features/${trackId}`, {
           headers: {
             'Authorization': `Bearer ${accessToken}`
           }
         });
-  
-        console.log('Track response:', trackResponse.data); // Debug log
-  
-        // Attempt to get tempo from the available data
         const tempo = trackResponse.data.tempo || 'Tempo data not available';
-        
-        console.log('Track tempo:', tempo); // Debug log
+        console.log('Track tempo:', tempo);
         return tempo;
       } else {
         throw new Error('No track currently playing');
@@ -175,12 +166,12 @@ async function getTrackTempo() {
     }
   }
   
-app.get('/api/tempo', async (req, res) => {
+app.get('/tempo', async (req, res) => {
     try {
         const tempo = await getTrackTempo();
         res.json({ tempo });
     } catch (error) {
-        console.error('Error in /api/tempo:', error.message);
+        console.error('Error in /tempo:', error.message);
         res.status(500).send('Error fetching track tempo');
     }
 });

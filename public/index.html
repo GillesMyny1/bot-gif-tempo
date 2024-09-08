@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spotify Tempo Sprite Animation</title>
-  <link rel="stylesheet" href="styles.css"> <!-- Link to the new CSS file -->
+  <title>Gif Tempo Websource</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div id="gif-container">
     <div id="sprite"></div>
-    <div id="tempo-info">Loading tempo...</div>
     <button id="login-btn" onclick="window.location.href='/login';">Authorize Spotify</button>
+    <div id="author-name">Made by: Gilles</div>
   </div>
 
   <script>
     async function fetchTempo() {
       try {
-        const response = await fetch('/api/tempo');
+        const response = await fetch('/tempo');
         const data = await response.json();
         return data.tempo;
       } catch (error) {
@@ -27,8 +27,7 @@
     function updateSpriteSpeed(tempo) {
       const sprite = document.getElementById('sprite');
       if (tempo) {
-        // Calculate the animation duration based on tempo
-        const frameDuration = (60 / tempo) * 6; // 60 seconds per minute
+        const frameDuration = (60 / tempo) * 6;
         sprite.style.animationDuration = `${frameDuration}s`;
       }
     }
@@ -38,16 +37,14 @@
         const tempo = await fetchTempo();
         if (tempo) {
           updateSpriteSpeed(tempo);
-          document.getElementById('tempo-info').textContent = `Tempo: ${tempo} BPM`;
         }
       } catch (error) {
         console.error('Error updating sprite speed:', error);
       }
     }
 
-    // Update tempo every 10 seconds or as needed
-    setInterval(updateTempo, 10000);
-    updateTempo(); // Initial update
+    setInterval(updateTempo, 3000);
+    updateTempo();
   </script>
 </body>
 </html>

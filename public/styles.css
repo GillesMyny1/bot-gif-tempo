@@ -1,47 +1,48 @@
-/* styles.css */
-
 #gif-container {
     display: flex;
-    flex-direction: column; /* Arrange children vertically */
-    justify-content: center; /* Center items vertically */
-    align-items: center; /* Center items horizontally */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
-    background-color: white; /* Optional: for better visibility */
-}
-
-#tempo-info {
-    font-size: 1.5rem;
-    color: black;
-    margin: 10px;
+    background-color: white;
 }
 
 #sprite {
     width: 300px; /* Width of one frame */
-    height: 300px; /* Height of one frame */
+    height: 200px; /* Height of one frame */
     background-image: url('pepeD.png'); /* Path to your sprite map */
-    background-size: 300px 1800px; /* Size of the entire sprite map (width x height) */
-    background-position: 0 0; /* Starting position */
-    animation: playSprite 1s steps(6) infinite; /* Animation with 6 frames */
-    margin: 10px;
+    background-size: 300px 1200px; /* Size of the entire sprite map (width x height) */
+    background-position: 0 0;
+    animation: playSprite 1s steps(6) infinite; /* Number of frames in sprite map */
 }
 
-/* Adjust the keyframes to move horizontally across the sprite map */
+/* Adjust the keyframes to move vertically across the sprite map */
 @keyframes playSprite {
     from { background-position: 0 0; }
-    to { background-position: 0 -1800px; } /* Move horizontally based on the sprite map height minus one frame */
+    to { background-position: 0 -1200px; } /* Move vertically through the height of sprite map */
 }
 
 #login-btn {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #1DB954; /* Spotify green */
+    background-color: #1DB954;
     color: white;
     border: none;
     border-radius: 5px;
-    margin: 10px;
 }
 
 #login-btn:hover {
     background-color: #1ED760;
+}
+
+#author-name {
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: gray;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    width: fit-content;
 }
