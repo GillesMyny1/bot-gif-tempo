@@ -38,7 +38,18 @@ This web application fetches the current tempo of the track playing on Spotify a
 4. **Start the Server**
 
    Start the server by running:
+
    ```bash
    npm start
 
+5. **Authorize Spotify**
+
    The application will be available at `http://localhost:3000`. Open this URL in your web browser to interact with the app.
+
+   Authorize the app to fetch your token and begin fetching the tempo of your currently played song.
+
+6. **OBS Connection**
+
+   In OBS, add Browser source, in the `URL` field enter `http://localhost:3000`, in the `Width` and `Height` fields enter a comfortable size (i.e. 800px 600px) and hit `OK`.
+
+   You can then resize the Browser source holding `Alt` on your keyboard to ensure only the animated sprite is visible.
