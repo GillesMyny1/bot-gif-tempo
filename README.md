@@ -19,9 +19,9 @@ This web application fetches the current tempo of the track playing on Spotify a
 ### Spotify Developer App
 
    To create your app in Spotify Developer at `https://developer.spotify.com/dashboard`, hit `Create App`, fill in required informatation.
-      -- Name the app
-      - Describe the app
-      - Redirect URIs must contain `http://localhost:3000/callback` when running this locally.
+   1. Name the app
+   2. Describe the app
+   3. Redirect URIs must contain `http://localhost:3000/callback` when running this locally.
 
 ### Installation
 
