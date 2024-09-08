@@ -56,12 +56,28 @@ This web application fetches the current tempo of the track playing on Spotify a
 
 ## Customization
 
+### Adding Custom Sprite Map
+
+Visit `https://ezgif.com/gif-to-sprite` with and to convert your GIF to a Sprite Map. 
+Make sure to select the following options:
+   - Stack vertically
+   - No margin around outside
+   - Optional: Enter custom tile size
+
+Download and move your custom sprite map into the `/public/` directory.
+
 ### Sprite Map
 
-- The sprite map `pepeD.png` should be a vertical sprite map (frames stacked vertically) with no margin between frames.
+- The sprite map `nodders.png` should be a vertical sprite map (frames stacked vertically) with no margin between frames.
 - Make note of the following items:
+   - Sprite Map Name (.png)
    - Sprite Map Width (px)
    - Sprite Map Height (px)
    - Single Frame Width (px)
-   -  Single Frame Height (px)
+   - Single Frame Height (px)
    - Sprite Animation Frame Count (int)
+
+### CSS
+
+In `styles.css` please change the respective commented lines in `#sprite` to your specific sprite map name, dimensions, and frame count.
+Additionally, under `@keyframes playSprite` change the `to` CSS background-position to the negative value of your Sprite Map Height (px).
