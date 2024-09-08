@@ -1,0 +1,47 @@
+/* styles.css */
+
+#gif-container {
+    display: flex;
+    flex-direction: column; /* Arrange children vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    height: 100vh;
+    background-color: white; /* Optional: for better visibility */
+}
+
+#tempo-info {
+    font-size: 1.5rem;
+    color: black;
+    margin: 10px;
+}
+
+#sprite {
+    width: 300px; /* Width of one frame */
+    height: 300px; /* Height of one frame */
+    background-image: url('pepeD.png'); /* Path to your sprite map */
+    background-size: 300px 1800px; /* Size of the entire sprite map (width x height) */
+    background-position: 0 0; /* Starting position */
+    animation: playSprite 1s steps(6) infinite; /* Animation with 6 frames */
+    margin: 10px;
+}
+
+/* Adjust the keyframes to move horizontally across the sprite map */
+@keyframes playSprite {
+    from { background-position: 0 0; }
+    to { background-position: 0 -1800px; } /* Move horizontally based on the sprite map height minus one frame */
+}
+
+#login-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #1DB954; /* Spotify green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+#login-btn:hover {
+    background-color: #1ED760;
+}
