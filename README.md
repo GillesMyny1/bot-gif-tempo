@@ -60,8 +60,8 @@ This web application fetches the current tempo of the track playing on Spotify a
 
 - The sprite map `pepeD.png` should be a vertical sprite map (frames stacked vertically) with no margin between frames.
 - Make note of the following items:
-  -- Sprite Map Width (px)
-  -- Sprite Map Height (px)
-  -- Single Frame Width (px)
-  -- Single Frame Height (px)
-  -- Sprite Animation Frame Count (int)
+   - Sprite Map Width (px)
+   - Sprite Map Height (px)
+   - Single Frame Width (px)
+   -  Single Frame Height (px)
+   - Sprite Animation Frame Count (int)
