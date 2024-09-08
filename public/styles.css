@@ -8,21 +8,18 @@
 }
 
 #sprite {
-    /* width: 300px; /* Width of one frame */
-    /* height: 200px; /* Height of one frame */
-    width: 126px; /* Width of one frame */
-    height: 80px; /* Height of one frame */
-    background-image: url('nodders.png'); /* Path to your sprite map */
-    background-size: 126px 320px; /* Size of the entire sprite map (width x height) */
+    width: 126px; /* Single Frame Width (px) */
+    height: 80px; /* Single Frame Height (px) */
+    background-image: url('nodders.png'); /* Sprite Map Name (.png) */
+    background-size: 126px 320px; /* Sprite Map Width (px) and Sprite Map Height (px)*/
     background-position: 0 0;
-    animation: playSprite 0.5s steps(4) infinite; /* Number of frames in sprite map */
+    animation: playSprite 0.5s steps(4) infinite; /* Replace steps() param with Sprite Animation Frame Count (int) */
     margin-bottom: 10px;
 }
 
-/* Adjust the keyframes to move vertically across the sprite map */
 @keyframes playSprite {
     from { background-position: 0 0; }
-    to { background-position: 0 -320px; } /* Move vertically through the height of sprite map */
+    to { background-position: 0 -320px; } /* 0 to Negative Sprite Map Height (px) */
 }
 
 #login-btn {
