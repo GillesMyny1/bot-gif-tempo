@@ -27,7 +27,7 @@
     function updateSpriteSpeed(tempo) {
       const sprite = document.getElementById('sprite');
       if (tempo) {
-        const frameDuration = (60 / tempo) * 6;
+        const frameDuration = (60 / tempo) * 4; /* Multiply by number of frames in sprite map */
         sprite.style.animationDuration = `${frameDuration}s`;
       }
     }
@@ -43,7 +43,7 @@
       }
     }
 
-    setInterval(updateTempo, 3000);
+    setInterval(updateTempo, 10000);
     updateTempo();
   </script>
 </body>
