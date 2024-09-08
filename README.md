@@ -33,4 +33,4 @@ This web application fetches the current tempo of the track playing on Spotify a
 
 3. **Update Environment Variables**
 
-   In the provided .env file, replace 'your_spotify_client_id' and 'your_spotify_client_secret' with your unique credentials provided by Spotify.
+   In the provided .env file, replace `your_spotify_client_id` and `your_spotify_client_secret` with your unique credentials provided by Spotify.
