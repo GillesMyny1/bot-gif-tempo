@@ -23,3 +23,14 @@ This web application fetches the current tempo of the track playing on Spotify a
    ```bash
    git clone https://github.com/GillesMyny1/bot-gif-tempo.git
    cd bot-gif-tempo
+
+2. **Install Dependencies**
+
+   Navigate to the project directory and install the necessary dependencies:
+
+   ```bash
+   npm install
+
+3. **Update Environment Variables**
+
+   In the provided .env file, replace 'your_spotify_client_id' and 'your_spotify_client_secret' with your unique credentials provided by Spotify.
