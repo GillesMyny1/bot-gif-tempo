@@ -16,6 +16,13 @@ This web application fetches the current tempo of the track playing on Spotify a
 - Node.js and npm installed on your machine.
 - A Spotify Developer account with a registered application to obtain the `CLIENT_ID`, `CLIENT_SECRET`, and `REDIRECT_URI`.
 
+### Spotify Developer App
+
+To create your app in Spotify Developer at `https://developer.spotify.com/dashboard`, hit `Create App`, fill in required informatation.
+- Name the app
+- Describe the app
+- Redirect URIs must contain `http://localhost:3000/callback` when running this locally.
+
 ### Installation
 
 1. **Clone the Repository**
@@ -33,7 +40,7 @@ This web application fetches the current tempo of the track playing on Spotify a
 
 3. **Update Environment Variables**
 
-   In the provided .env file, replace `your_spotify_client_id` and `your_spotify_client_secret` with your unique credentials provided by Spotify.
+   In the provided `.env` file, replace `your_spotify_client_id` and `your_spotify_client_secret` with your unique credentials provided by Spotify.
 
 4. **Start the Server**
 
