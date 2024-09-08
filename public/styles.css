@@ -15,7 +15,7 @@
     background-image: url('nodders.png'); /* Path to your sprite map */
     background-size: 126px 320px; /* Size of the entire sprite map (width x height) */
     background-position: 0 0;
-    animation: playSprite 1s steps(4) infinite; /* Number of frames in sprite map */
+    animation: playSprite 0.5s steps(4) infinite; /* Number of frames in sprite map */
     margin-bottom: 10px;
 }
 
