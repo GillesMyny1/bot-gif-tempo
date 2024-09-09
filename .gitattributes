@@ -1,2 +1,14 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Enforce LF line endings in all text files
+* text=auto eol=lf
+
+# Forcing specific types of files to always use LF
+*.js text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.env text eol=lf
+
+# Binary files should be treated as binary
+*.png binary
+*.jpg binary
+*.gif binary
+*.svg binary
