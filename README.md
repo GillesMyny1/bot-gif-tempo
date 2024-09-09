@@ -38,13 +38,16 @@ This web application fetches the current tempo of the track playing on Spotify a
    ```bash
    npm install
 
-3. **Update Environment Variables**
+4. **Initial Startup**
 
-   In the provided `.env` file, replace `your_spotify_client_id` and `your_spotify_client_secret` with your unique credentials provided by Spotify.
+   Start the server for the first time by running:
 
-4. **Start the Server**
+   ```bash
+   npm start <CLIENT_ID> <CLIENT_SECRET> <REDIRECT_URI>
 
-   Start the server by running:
+5. **Following Startups**
+
+   After you've started the server and the `.env` file was setup, you can start the server by running:
 
    ```bash
    npm start
