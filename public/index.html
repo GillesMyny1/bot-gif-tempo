@@ -21,21 +21,23 @@
         return data.tempo;
       } catch (error) {
         console.error('Error fetching tempo:', error);
+        return null;
       }
     }
 
     function updateSpriteSpeed(tempo) {
       const sprite = document.getElementById('sprite');
       if (tempo) {
-        const animationCycle = (60 / tempo);
+        const animationCycle = (60 / tempo) * 4;
         sprite.style.animationDuration = `${animationCycle}s`;
+        console.log(`Animation Duration Set to: ${animationCycle}s for tempo: ${tempo} BPM`);
       }
     }
 
     async function updateTempo() {
       try {
         const tempo = await fetchTempo();
-        if (tempo) {
+        if (tempo !== -998) {
           updateSpriteSpeed(tempo);
         }
       } catch (error) {
@@ -43,7 +45,7 @@
       }
     }
 
-    setInterval(updateTempo, 10000);
+    setInterval(updateTempo, 15000);
     updateTempo();
   </script>
 </body>

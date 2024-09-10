@@ -15,6 +15,8 @@ const REDIRECT_URI = process.env.REDIRECT_URI;
 let accessToken = '';
 let refreshToken = '';
 let tokenExpiry = 0;
+let cachedTrackId = null;
+let cachedTempo = null;
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -93,9 +95,8 @@ app.get('/refresh_token', async (req, res) => {
   }
 });
 
-// Middleware to check token expiry and refresh if needed
 app.use(async (req, res, next) => {
-  if (Date.now() > tokenExpiry - 60 * 1000) { // Refresh 1 minute before expiry
+  if (Date.now() > tokenExpiry - 60 * 1000) {
     try {
       await refreshAccessToken();
     } catch (error) {
@@ -138,7 +139,6 @@ async function getTrackTempo() {
     }
   
     try {
-      // Spotify API call gets currently playing song
       const playbackStateResponse = await axios.get('https://api.spotify.com/v1/me/player/currently-playing', {
         headers: {
           'Authorization': `Bearer ${accessToken}`
@@ -147,16 +147,22 @@ async function getTrackTempo() {
   
       if (playbackStateResponse.data && playbackStateResponse.data.item) {
         const trackId = playbackStateResponse.data.item.id;
-  
-        // Spotify API call gets tempo of currently playing song
-        const trackResponse = await axios.get(`https://api.spotify.com/v1/audio-features/${trackId}`, {
-          headers: {
-            'Authorization': `Bearer ${accessToken}`
-          }
-        });
-        const tempo = trackResponse.data.tempo || 'Tempo data not available';
-        console.log('Track tempo:', tempo);
-        return tempo;
+        if (trackId !== cachedTrackId) {
+          console.log('New track detected, fetching tempo...');
+          const trackResponse = await axios.get(`https://api.spotify.com/v1/audio-features/${trackId}`, {
+            headers: {
+              'Authorization': `Bearer ${accessToken}`
+            }
+          });
+          const tempo = trackResponse.data.tempo || 'Tempo data not available';
+          console.log('Track has changed, using fetched tempo: ', tempo)
+          cachedTrackId = trackId;
+          cachedTempo = tempo;
+        } else {
+          console.log('Track has not changed, using cached tempo: ', cachedTempo);
+          return -998;
+        }
+        return cachedTempo;
       } else {
         throw new Error('No track currently playing');
       }

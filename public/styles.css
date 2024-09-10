@@ -11,15 +11,16 @@
     width: 126px; /* Single Frame Width (px) */
     height: 80px; /* Single Frame Height (px) */
     background-image: url('nodders.png'); /* Sprite Map Name (.png) */
-    background-size: 126px 320px; /* Sprite Map Width (px) and Sprite Map Height (px)*/
+    background-size: 126px 1280px; /* Sprite Map Width (px) and Sprite Map Height (px) */
     background-position: 0 0;
-    animation: playSprite 0.5s steps(4) infinite; /* Replace steps() param with Sprite Animation Frame Count (int) */
+    animation: playSprite 2s steps(16, end) infinite; /* Adjusted for 16 frames */
     margin-bottom: 10px;
+    will-change: background-position;
 }
 
 @keyframes playSprite {
     from { background-position: 0 0; }
-    to { background-position: 0 -320px; } /* 0 to Negative Sprite Map Height (px) */
+    to { background-position: 0 -1280px; } /* 0 to Negative Sprite Map Height (px) */
 }
 
 #login-btn {
